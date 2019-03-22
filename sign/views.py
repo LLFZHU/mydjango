@@ -12,9 +12,14 @@ def login_action(request):
         password = request.POST.get('password', '')
 
         if username == 'admin' and password == 'admin123456':
-            return HttpResponseRedirect('/event_manage/')
+            response = HttpResponseRedirect('/event_manage/')
+            # response.set_cookie('user',username,3600)
+            request.session['user'] = username
+            return response
         else:
             return render(request,'index.html',{'error': 'error'})
 
 def event_manage(request):
-    return render(request,'event_manage.html')
+    # username = request.COOKIES.get('user', '')
+    username = request.session.get('user','')
+    return render(request,'event_manage.html',{'user':username})
