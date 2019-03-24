@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'sign',
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -81,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'sign',
         'USER': 'root',
-        'PASSWORD': '123456',
+        'PASSWORD': 'root',
         'HOST': '127.0.0.1',
     }
 }
